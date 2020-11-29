@@ -1,0 +1,25 @@
+name: copy files to server
+on: [push]
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup demo
+        run: |
+          mkdir fold
+          touch fold/a.md
+          touch fold/b.md
+      - name: copy folder to remote
+        uses: ./
+        with:
+          local: fold
+          remote: usr
+          host: ${{ secrets.HOST }}
+          #username: ${{ secrets.SSH_USER }}
+          #password: ${{ secrets.PASSWORD }}
+          privateKey: ${{ secrets.PRIVATE_KEY }}
+        env:
+          CI: true

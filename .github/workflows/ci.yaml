@@ -9,13 +9,15 @@ jobs:
         uses: actions/checkout@v2
       - name: setup demo
         run: |
-          touch index.html
-          cp ind.html index.html
+          #touch index.html
+          #cp ind.html index.html
+          mkdir out
+          mv ./out out
       - name: copy folder to remote
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: index.html
-          remote: /var/www/html/index.html
+          local: out
+          remote: /var/www/html/
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           #password: ${{ secrets.PASSWORD }}

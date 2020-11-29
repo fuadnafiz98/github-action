@@ -18,7 +18,7 @@ jobs:
           local: fold
           remote: usr
           host: ${{ secrets.HOST }}
-          #username: ${{ secrets.SSH_USER }}
+          username: ${{ secrets.SSH_USER }}
           #password: ${{ secrets.PASSWORD }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
         env:

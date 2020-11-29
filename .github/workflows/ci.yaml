@@ -10,7 +10,7 @@ jobs:
       - name: setup demo
         run: |
           touch index.html
-          echo "hello" > index.html
+          cp ind.html index.html
       - name: copy folder to remote
         uses: garygrossgarten/github-action-scp@release
         with:
